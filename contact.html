@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Yoav HARROUCH</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo">Yoav HARROUCH</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="competences.html">Compétences</a></li>
+            <li><a href="parcours.html">Parcours</a></li>
+            <li><a href="stage.html">Stage</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="page-content">
+    <section class="section">
+        <h1>Contactez‑moi</h1>
+        <p class="section-intro">Disponible pour un stage BTS SIO SLAM 2026</p>
+
+        <div class="contact-grid">
+
+            <!-- GitHub -->
+            <div class="contact-card" data-link="https://github.com/Yh100507">
+                <div class="contact-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                         alt="GitHub" width="50">
+                </div>
+                <h3>GitHub</h3>
+                <p><strong>Ouvrir GitHub</strong></p>
+            </div>
+
+            <!-- CV -->
+            <div class="contact-card" data-link="https://cvdesignr.com/p/69723a92f3d4b">
+                <div class="contact-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg"
+                         alt="PDF CV" width="50">
+                </div>
+                <h3>Mon CV</h3>
+                <p><strong>Ouvrir le CV</strong></p>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="contact-card" data-link="https://www.linkedin.com/in/yoav-harrouch-1b32ab3b9/">
+                <div class="contact-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+                         alt="LinkedIn" width="50">
+                </div>
+                <h3>LinkedIn</h3>
+                <p><strong>Voir mon profil LinkedIn</strong></p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Bouton “Me contacter” en bas -->
+<div class="contact-center">
+    <button class="btn-contact" id="open-contact-modal">Me contacter</button>
+</div>
+
+<!-- Modal de formulaire (flouté en arrière-plan quand ouvert) -->
+<div class="modal-overlay" id="contact-modal">
+    <div class="modal-content">
+        <span class="modal-close" id="close-modal">&times;</span>
+        <h2>Envoyer un email</h2>
+        <form id="mail-form" class="contact-form">
+            <input type="text" id="name" placeholder="Votre nom" required>
+            <input type="email" id="email" placeholder="Votre email" required>
+            <input type="text" id="subject" placeholder="Sujet du message" required>
+            <button type="button" id="send-email-btn" class="btn-modal">Envoyer mon email</button>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    // Rendre cliquable chaque carte (sauf le bouton mail qui est déjà dans un form)
+    document.querySelectorAll('.contact-card').forEach(card => {
+        const link = card.getAttribute('data-link');
+        if (link && card.id !== 'email-contact') {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+                window.open(link, '_blank');
+            });
+        }
+    });
+
+    // Génère et ouvre un lien mailto pré‑rempli
+    document.getElementById('send-email-btn').addEventListener('click', () => {
+        const name = document.getElementById('name').value.trim();
+        const userEmail = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+
+        if (!name || !userEmail || !subject) {
+            alert('Veuillez remplir tous les champs.');
+            return;
+        }
+
+        const mailtoLink = `mailto:harrouchyoav2@gmail.com?subject=${encodeURIComponent(`[Portfolio] ${subject}`)}&body=${encodeURIComponent(
+            `Bonjour Yoav,\n\nJe me présente : ${name} (${userEmail}).\n\n${subject}\n\nCordialement,`
+        )}`;
+
+        window.location.href = mailtoLink;
+    });
+
+// Ouvrir la modale
+const openButton = document.getElementById('open-contact-modal');
+const modal = document.getElementById('contact-modal');
+const closeButton = document.getElementById('close-modal');
+
+openButton.addEventListener('click', () => {
+modal.style.display = 'flex';  // overlay flouté + modal
+});
+
+// Fermer la modale
+closeButton.addEventListener('click', () => {
+modal.style.display = 'none';
+});
+
+// Fermer aussi si on clique sur le gris derrière
+modal.addEventListener('click', (e) => {
+if (e.target === modal) {
+modal.style.display = 'none';
+}
+});
+
+// Bouton “Envoyer mon email” dans la modale
+document.getElementById('send-email-btn').addEventListener('click', () => {
+const name = document.getElementById('name').value.trim();
+const userEmail = document.getElementById('email').value.trim();
+const subject = document.getElementById('subject').value.trim();
+
+if (!name || !userEmail || !subject) {
+alert('Veuillez remplir tous les champs.');
+return;
+}
+
+const mailtoLink = `mailto:harrouchyoav2@gmail.com?subject=${encodeURIComponent(`[Portfolio] ${subject}`)}&body=${encodeURIComponent(
+`Bonjour Yoav,\n\nJe me présente : ${name} (${userEmail}).\n\n${subject}\n\nCordialement,`
+)}`;
+
+modal.style.display = 'none';  // ferme la modale
+window.location.href = mailtoLink;
+});
+
+</script>
+
+<footer>
+    <p>© 2027 Yoav HARROUCH - BTS SIO SLAM | Lycée ORT Montreuil</p>
+</footer>
+</body>
+</html>

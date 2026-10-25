@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mon Stage - Yoav HARROUCH</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">Yoav HARROUCH</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="competences.html">Compétences</a></li>
+            <li><a href="parcours.html">Parcours</a></li>
+            <li><a href="stage.html" class="active">Stage</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+
+<main class="page-content">
+
+    <!-- TITRE -->
+    <section class="section">
+
+        <h1>Mon stage à l'ONPC</h1>
+
+        <p class="section-intro">
+            Découverte du monde professionnel et du secteur du numérique
+        </p>
+
+
+        <!-- PRESENTATION ENTREPRISE -->
+        <div class="stage-card">
+
+            <h2>🏢 Présentation de l'entreprise</h2>
+
+            <p>
+                L'<strong>ONPC – Office National de Publication et de Communication</strong>
+                est une entreprise spécialisée dans l'information, la communication
+                et les services numériques.
+            </p>
+
+            <p>
+                Présente depuis environ <strong>60 ans</strong>, l'entreprise a pour
+                objectif de faciliter l'accès à l'information et de mettre en relation
+                différents publics et professionnels.
+            </p>
+
+            <p>
+                L'ONPC intervient notamment dans les domaines de
+                <strong>l'enseignement privé, du sanitaire et social, de l'emploi,
+                    des classes découvertes et du secteur dentaire</strong>.
+            </p>
+
+        </div>
+
+
+        <!-- INFORMATIONS -->
+        <div class="stage-grid">
+
+            <div class="stage-card">
+
+                <h2>📍 Informations</h2>
+
+                <p>
+                    <strong>Nom :</strong> ONPC
+                </p>
+
+                <p>
+                    <strong>Nom complet :</strong>
+                    Office National de Publication et de Communication
+                </p>
+
+                <p>
+                    <strong>Adresse :</strong><br>
+                    70 rue Philippe de Girard<br>
+                    75018 Paris
+                </p>
+
+                <p>
+                    <strong>Téléphone :</strong>
+                    01 42 09 13 00
+                </p>
+
+                <p>
+                    <strong>Secteur :</strong>
+                    Information, communication, numérique et création de sites internet
+                </p>
+
+            </div>
+
+
+            <!-- ACTIVITES -->
+            <div class="stage-card">
+
+                <h2>💼 Les domaines d'activité</h2>
+
+                <ul class="stage-list">
+
+                    <li>Enseignement privé</li>
+
+                    <li>Sanitaire et social</li>
+
+                    <li>Emploi</li>
+
+                    <li>Classes découvertes</li>
+
+                    <li>Annuaire dentaire</li>
+
+                    <li>Création de sites web</li>
+
+                    <li>Location de fichiers</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- SERVICES NUMERIQUES -->
+        <div class="stage-card">
+
+            <h2>💻 Les services numériques</h2>
+
+            <p>
+                La création de sites internet constitue une activité importante
+                de l'ONPC. L'entreprise accompagne ses clients de la conception
+                jusqu'à la mise en ligne de leur site.
+            </p>
+
+            <p>
+                Elle propose également différents services liés au numérique,
+                notamment <strong>l'hébergement, le référencement naturel,
+                le suivi d'audience et la mise à jour des sites web</strong>.
+            </p>
+
+        </div>
+
+
+        <!-- ACCUEIL -->
+        <div class="stage-card">
+
+            <h2>👨‍💻 Mon accueil dans l'entreprise</h2>
+
+            <p>
+                J'ai été accueilli au sein de l'ONPC dans le cadre de mon stage.
+                Cette expérience m'a permis de découvrir le fonctionnement
+                d'une entreprise du secteur de la communication et du numérique.
+            </p>
+
+            <p>
+                J'ai également pu découvrir son organisation ainsi que les
+                différents métiers qui y sont exercés.
+            </p>
+
+            <p>
+                Durant cette période, j'ai pu observer le travail des professionnels
+                et découvrir concrètement l'utilisation des outils et méthodes
+                utilisés dans le monde professionnel.
+            </p>
+
+        </div>
+
+
+        <!-- MISSIONS -->
+        <div class="stage-card stage-missions">
+
+            <h2>🛠️ Mes missions pendant le stage</h2>
+
+            <p>
+                Pendant mon stage, j'ai développé avec <strong>Symfony</strong> une application
+                capable de recevoir des demandes et de les analyser automatiquement grâce à une
+                <strong>intelligence artificielle installée en local</strong> avec <strong>Ollama</strong>.
+                Son fonctionnement ressemble à un petit ChatGPT côté serveur.
+            </p>
+
+            <p><strong>Les fonctionnalités que j'ai réalisées :</strong></p>
+
+            <ul class="stage-list" style="margin-bottom: 1.5rem;">
+                <li><strong>Analyse automatique des demandes</strong> : l'IA génère un résumé, un score de priorité, le type de demande et son niveau d'urgence</li>
+                <li><strong>Enregistrement automatique</strong> des résultats en base de données, avec un statut de traitement (en attente / traitée)</li>
+                <li><strong>Un tableau de bord</strong> qui affiche toutes les demandes et leur analyse</li>
+                <li><strong>Un moteur de recherche par mot-clé</strong> pour retrouver rapidement une demande précise</li>
+                <li><strong>Une relation OneToOne</strong> entre la table des demandes et celle des analyses, pour séparer les données et faciliter leur transmission</li>
+            </ul>
+
+            <p><strong>La mise en place de l'IA :</strong></p>
+
+            <ul class="stage-list" style="margin-bottom: 1.5rem;">
+                <li>Installation d'<strong>Ollama</strong> et du modèle <strong>Gemma2:2b</strong> sur le serveur</li>
+                <li>Installation du modèle <strong>Llama 3</strong> sur mon poste pour les tests</li>
+                <li>Rédaction d'un fichier <strong>README</strong> qui explique l'installation et l'utilisation d'Ollama et des modèles</li>
+            </ul>
+
+            <p>
+                <strong>Technologies utilisées :</strong>
+                PHP, Symfony, Doctrine, Twig, Ollama, Gemma2, Llama 3
+            </p>
+
+        </div>
+
+
+        <!-- CE QUE J'AI APPRIS -->
+        <div class="stage-card">
+
+            <h2>📚 Ce que j'ai appris</h2>
+
+            <p>
+                Ce stage m'a permis de découvrir plus concrètement le monde
+                professionnel et le fonctionnement d'une entreprise spécialisée
+                dans la communication et le numérique.
+            </p>
+
+            <p>
+                Sur le plan technique, j'ai approfondi le framework <strong>Symfony</strong>
+                et la gestion des données avec <strong>Doctrine</strong>, notamment les relations
+                entre entités. J'ai aussi découvert comment intégrer une
+                <strong>intelligence artificielle locale</strong> dans une application web
+                pour automatiser le traitement de demandes.
+            </p>
+
+            <p>
+                J'ai également appris à documenter mon travail, avec un fichier README
+                permettant à d'autres personnes d'installer et de reprendre le projet.
+            </p>
+
+        </div>
+
+
+        <!-- SITE INTERNET -->
+        <div class="stage-card stage-website">
+
+            <h2>🌐 Site internet de l'entreprise</h2>
+
+            <p>
+                Pour découvrir davantage l'ONPC et ses différents domaines
+                d'activité, vous pouvez consulter son site internet.
+            </p>
+
+            <a href="https://onpc.fr" target="_blank" class="btn primary">
+                Visiter le site de l'ONPC
+            </a>
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2027 Yoav HARROUCH - BTS SIO SLAM |
+        Lycée ORT Montreuil
+    </p>
+
+</footer>
+
+</body>
+</html>

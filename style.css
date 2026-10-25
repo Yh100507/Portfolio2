@@ -1,0 +1,754 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fond général légèrement bleuté (pas blanc pur) */
+body {
+    background: #f8fbff;              /* Fond blanc très légèrement bleuté */
+    color: #1e293b;                  /* Texte gris foncé */
+    line-height: 1.6;
+}
+
+/* Navigation frosted / flottante */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0ea5e9;                 /* Bleu vif */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #475569;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: #0ea5e9;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::before,
+.nav-links a.active::before {
+    width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #0ea5e9;
+    font-weight: 700;
+}
+
+/* Hero (Accueil) */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.08), #f8fbff 70%);
+    padding-top: 80px;
+}
+
+.hero-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 0 2rem;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.hero-photo {
+    flex: 0 0 280px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid rgba(14, 165, 233, 0.2);
+    box-shadow: 0 20px 40px rgba(14, 165, 233, 0.12);
+    transition: all 0.5s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+    border-color: rgba(14, 165, 233, 0.4);
+    box-shadow: 0 30px 60px rgba(14, 165, 233, 0.18);
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.hero-text h1 span {
+    color: #0ea5e9;          /* Prénom en bleu */
+}
+
+.hero-text h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: #475569;
+    font-weight: 400;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+    color: #475569;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.15);
+}
+
+.btn.primary {
+    background: #0ea5e9;
+    color: white;
+}
+
+.btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(14, 165, 233, 0.25);
+}
+
+.btn.secondary {
+    background: transparent;
+    color: #1e293b;
+    border: 2px solid #0ea5e9;
+}
+
+.btn.secondary:hover {
+    background: #0ea5e9;
+    color: white;
+}
+
+/* Pages content */
+.page-content {
+    min-height: calc(100vh - 200px);
+    padding-top: 80px;
+}
+
+.section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+}
+
+.section h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.section-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #475569;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Projets */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+/* Card projet un peu plus bleue et douce */
+.project-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.08);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: #0ea5e9;
+    box-shadow: 0 25px 50px rgba(14, 165, 233, 0.15);
+}
+
+.project-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.project-card p {
+    color: #475569;
+    margin-bottom: 1rem;
+}
+
+.link {
+    color: #0ea5e9;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.link:hover {
+    color: #0284c7;
+}
+
+/* Compétences */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Card compétence stylisée */
+.skill-card {
+    background: linear-gradient(180deg, #ffffff, #f0f7ff);
+    padding: 2rem;
+    border-radius: 18px;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.06);
+    text-align: center;
+}
+
+.skill-card h3 {
+    color: #0ea5e9;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.skill-card ul {
+    list-style: none;
+    text-align: left;
+}
+
+.skill-card li {
+    padding: 0.5rem 0;
+    color: #475569;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.skill-card li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: #0ea5e9;
+}
+
+/* Timeline */
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    list-style: none;
+}
+
+.timeline li {
+    background: #ffffff;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 4px solid #0ea5e9;
+    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.06);
+}
+
+.timeline h3 {
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.timeline p strong {
+    color: #0ea5e9;
+}
+
+/* Contact */
+/* Grille de contact */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cartes de contact plus stylisées (touché de bleu léger) */
+.contact-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 15px 30px rgba(14, 165, 233, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.15), transparent);
+    transition: left 0.5s;
+}
+
+.contact-card:hover::before {
+    left: 100%;
+}
+
+.contact-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: #0ea5e9;
+    box-shadow:
+            0 30px 60px rgba(14, 165, 233, 0.15),
+            0 0 30px rgba(14, 165, 233, 0.1);
+}
+
+.contact-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.2));
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.15) rotate(10deg);
+    filter: drop-shadow(0 0 25px rgba(14, 165, 233, 0.4));
+}
+
+.contact-card h3 {
+    color: #1e293b;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.contact-card p {
+    color: #475569;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.contact-card a {
+    color: #0ea5e9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.contact-card a:hover {
+    color: #0284c7;
+    text-shadow: 0 0 10px rgba(14, 165, 233, 0.25);
+}
+
+/* Footer */
+footer {
+    background: #f0f7ff;
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(14, 165, 233, 0.2);
+    color: #475569;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .profile-img {
+        width: 240px;
+        height: 240px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 4rem 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Timeline visuelle (parcours) */
+.timeline-visual {
+    position: relative;
+    max-width: 800px;
+    margin: 4rem auto 0;
+    padding-left: 3rem;
+}
+
+.timeline-visual::before {
+    content: '';
+    position: absolute;
+    left: 1.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #0ea5e9;
+    z-index: 0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Point de la timeline */
+.timeline-point {
+    position: absolute;
+    left: 1.2rem;
+    top: 1rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #0ea5e9;
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.3);
+    z-index: 1;
+}
+
+/* Contenu du bloc de parcours */
+.timeline-content {
+    background: #ffffff;
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.08);
+    margin-left: 2rem;
+}
+
+.timeline-content h3 {
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.timeline-content p {
+    color: #475569;
+    margin: 0.3rem 0;
+}
+
+/* Bouton centré “Me contacter” en bas */
+.contact-center {
+    text-align: center;
+    padding: 3rem 0 4rem 0;
+}
+
+.btn-contact {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: 2px solid #0ea5e9;
+    background: transparent;
+    color: #0ea5e9;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-contact:hover {
+    background: #0ea5e9;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Overlay de la modale (flouté) */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Contenu de la modale */
+.modal-content {
+    background: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    box-shadow:
+            0 30px 60px rgba(14, 165, 233, 0.15),
+            0 0 30px rgba(14, 165, 233, 0.1);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.modal-content h2 {
+    color: #1e293b;
+    margin-bottom: 1.2rem;
+    text-align: center;
+}
+
+/* Bouton de la modale */
+.btn-modal {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    background: #0ea5e9;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.btn-modal:hover {
+    background: #0284c7;
+    transform: translateY(-2px);
+}
+
+/* Inputs de la modale */
+.modal-content input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    outline: none;
+}
+
+.modal-content input:focus {
+    border-color: #0ea5e9;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+}
+
+/* Croix de fermeture */
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    font-size: 1.6rem;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #0ea5e9;
+}
+.photo-float {
+    position: relative;
+    animation: floatPhoto 4s ease-in-out infinite;
+}
+
+@keyframes floatPhoto {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.photo-float:hover {
+    transform: translateY(-5px) scale(1.02);
+    transition: transform 0.3s ease;
+}
+    /* ============================= */
+    /* PAGE STAGE                     */
+    /* ============================= */
+
+    .stage-card {
+        background: #ffffff;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 20px;
+        border: 1px solid rgba(14, 165, 233, 0.2);
+        box-shadow: 0 10px 30px rgba(14, 165, 233, 0.08);
+        transition: all 0.3s ease;
+    }
+
+    .stage-card:hover {
+        transform: translateY(-5px);
+        border-color: #0ea5e9;
+        box-shadow: 0 20px 40px rgba(14, 165, 233, 0.12);
+    }
+
+    .stage-card h2 {
+        color: #0ea5e9;
+        margin-bottom: 1.2rem;
+        font-size: 1.6rem;
+    }
+
+    .stage-card p {
+        color: #475569;
+        margin-bottom: 1rem;
+    }
+
+    .stage-card p:last-child {
+        margin-bottom: 0;
+    }
+
+
+    /* Grille informations / activités */
+
+    .stage-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+    }
+
+
+    /* Liste des activités */
+
+    .stage-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .stage-list li {
+        padding: 0.7rem 0;
+        color: #475569;
+        border-bottom: 1px solid rgba(14, 165, 233, 0.1);
+    }
+
+    .stage-list li::before {
+        content: '▹';
+        color: #0ea5e9;
+        font-weight: bold;
+        margin-right: 0.7rem;
+    }
+
+
+    /* Missions */
+
+    .stage-missions {
+        border-left: 4px solid #0ea5e9;
+    }
+
+    .mission-placeholder {
+        padding: 1.2rem;
+        background: #f0f7ff;
+        border-radius: 12px;
+        color: #64748b !important;
+        font-style: italic;
+    }
+
+
+    /* Site internet */
+
+    .stage-website {
+        text-align: center;
+    }
+
+    .stage-website p {
+        margin-bottom: 1.5rem;
+    }
+
+
+    /* Responsive */
+
+    @media (max-width: 768px) {
+
+        .stage-card {
+            padding: 1.5rem;
+        }
+
+        .stage-card h2 {
+            font-size: 1.4rem;
+        }
+
+        .stage-grid {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
